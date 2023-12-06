@@ -29,20 +29,19 @@ int newRow = 0, newCol = 0;
 
 for (int i = 0; i < array.GetLength(0); i++)
 {
-    if (i == minRow)
-        continue;
-
-    for (int j = 0; j < array.GetLength(1); j++)
+    if (i != minRow)
     {
-        if (j == minCol)
-            continue;
-
-        newArray[newRow, newCol] = array[i, j];
-        newCol++;
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (j != minCol)
+            {
+                newArray[newRow, newCol] = array[i, j];
+                newCol++;
+            }
+        }
+        newCol = 0;
+        newRow++;
     }
-
-    newCol = 0;
-    newRow++;
 }
 
 Console.WriteLine("Новый массив без строки и столбца с наименьшим элементом:");
@@ -54,5 +53,6 @@ for (int i = 0; i < newArray.GetLength(0); i++)
     }
     Console.WriteLine();
 }
+
 
 
